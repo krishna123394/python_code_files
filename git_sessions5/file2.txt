@@ -1,0 +1,75 @@
+1) design a function which returns the area of square
+   area = side x side
+   have another function which returns the perimeter of the square
+   peri = 4 x side
+   then have one function called calc_area_peri(side)  - which returns both area and peri
+
+def area(side):
+    area_square= side*side
+    return area_square
+def peri(side):
+    peri_square=4*side
+    return peri_square
+def calc_area_peri(side):
+    area_s=area(side)
+    perimeter_s=peri(side)
+    return area_s,perimeter_s
+a=calc_area_peri(5)
+print(a)
+o/p:
+(25, 20)
+
+2) have a function called simple_interes_amt(principle, rate, time) and returns 
+   SI = ( principle x rate x time ) / 100 where time is in years
+   input principle , rate and time and calc the SI
+   and amount = principle + SI
+
+def simple_interes_amt(principle,rate,time):
+    si=(principle*rate*time)/100
+    amt=principle+si
+    return si,amt
+a=1
+b=2
+c=3
+print(simple_interes_amt(a,b,c))
+o/p:
+(0.06, 1.06)
+
+3) have a dict called product_dict inside the MAIN block
+   pass the dict and the prod ID to a function called find_prod_info(DICT,PROD_ID)
+   and returns the prod info if prod ID exists otherwise returns 'no such ID'
+   use this prod dict
+   { 1000 : ['Laptop',120000], 2919:['Charger',4000], 2626:['Sun Glass',9500], 8181: ['Mobile',35000] }
+
+def find_prod_info(DICT,PROD_ID):
+    if PROD_ID in DICT:
+        return "it exists"
+    else:
+        return "it doesnt exists"
+p_dict={ 1000 : ['Laptop',120000], 2919:['Charger',4000], 2626:['Sun Glass',9500], 8181: ['Mobile',35000] }
+a=1000
+b=1001
+print(find_prod_info(p_dict,a))
+print(find_prod_info(p_dict,b))
+o/p:
+it exists
+it doesnt exists
+
+4)in the MAIN block input a string and then pass the str to a function called 
+   check_palindrome(str_data) which returns True if it is PALINDROME otherwise 
+   returns False
+
+def palindrome(a):
+    a=a.lower()
+    b=a[::-1]
+    if a==b:
+        return "palindrome"
+    else:
+        return "not a palindrome"
+s="Malayalam"
+n="lakshmi"
+print(palindrome(s))
+print(palindrome(n))
+o/p:
+palindrome
+not a palindrome
