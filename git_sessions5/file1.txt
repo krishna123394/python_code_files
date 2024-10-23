@@ -1,0 +1,118 @@
+1) data1 = []
+   write a function called add_elements() to data1 - generate 100 random numbers between 1 to 800 and append it
+   write a function filter , lambda --- to sum all the TWO digit number
+   write a function filter , lambda --- to count how many THREE digit ODD numbers are there 
+   find out the mean value then find how many elements are above the mean value
+
+PROGRAMMING CODE:-
+
+import random
+data1 = []
+def add_elements():
+    global data1
+    data1 = [random.randint(1, 800) for _ in range(100)]
+def sum_two_digit_numbers():
+    return sum(filter(lambda x: 10 <= x <= 99, data1))
+def count_three_digit_odd_numbers():
+    return len(list(filter(lambda x: 100 <= x <= 999 and x % 2 != 0, data1)))
+def find_mean_and_above():
+    mean_val = sum(data1) / len(data1)
+    above_mean = len(list(filter(lambda x: x > mean_val, data1)))
+    return mean_val, above_mean
+add_elements()
+print("Sum of two-digit numbers:", sum_two_digit_numbers())
+print("Count of three-digit odd numbers:", count_three_digit_odd_numbers())
+mean_value, count_above_mean = find_mean_and_above()
+print("Mean value:", mean_value)
+print("Count of elements above mean:", count_above_mean)
+
+OUTPUT:--
+Sum of two-digit numbers: 628
+Count of three-digit odd numbers: 48
+Mean value: 409.32
+Count of elements above mean: 50
+==================================================================================================================
+2) given the emp = { 1000 : 'Ganesh', 1818: 'Vijay', 98270: 'Pankaj', 2000 :'Yogesh', 8180:'Laxman' , 1872: 'Uday' }
+   this dict is GLOBAL ie. at the top
+   write a function called add_emp() and keep adding the emp code and name till the user type -1 to STOP
+   find out how many employees are there 
+   remove the record of the employee Pankaj and Ganesh
+   change the name of the employ ID 2000 to Dwarkanath
+
+Programming Code:--
+
+
+emp = {
+    1000: 'Ganesh',
+    1818: 'Vijay',
+    98270: 'Pankaj',
+    2000: 'Yogesh',
+    8180: 'Laxman',
+    1872: 'Uday'
+}
+
+def add_emp():
+    while True:
+        emp_code = input("Enter employee code (or -1 to stop): ")
+        if emp_code == '-1':
+            break
+        emp_code = int(emp_code)  
+        
+        emp_name = input("Enter employee name: ")
+        emp[emp_code] = emp_name
+        
+add_emp()
+num_employees = len(emp)
+print(f'Total number of employees: {num_employees}')
+emp = {k: v for k, v in emp.items() if v not in ['Pankaj', 'Ganesh']}
+print('Updated employee records:', emp)
+if 2000 in emp:
+    emp[2000] = 'Dwarkanath'
+
+print('Final employee records:', emp)
+
+Output:---
+
+Enter employee code (or -1 to stop): 1001
+
+Enter employee name: krishna
+
+Enter employee code (or -1 to stop): 1003
+
+Enter employee name: sumitha
+
+Enter employee code (or -1 to stop): 1004
+
+Enter employee name: lakshmi
+
+Enter employee code (or -1 to stop): -1
+
+Total number of employees: 9
+Updated employee records: {1818: 'Vijay', 2000: 'Yogesh', 8180: 'Laxman', 1872: 'Uday', 1001: 'krishna', 1003: 'sumitha', 1004: 'lakshmi'}
+Final employee records: {1818: 'Vijay', 2000: 'Dwarkanath', 8180: 'Laxman', 1872: 'Uday', 1001: 'krishna', 1003: 'sumitha', 1004: 'lakshmi'}
+==============================================================================================================================================================
+3) using the above emp dict
+   apply the map and the right method of dict in a way all the names are in UPPERCASE 
+   apply the map and the right method of dict in a way all the ID become 'E:'+str(1000) i.e 'E:1000'
+
+Programming Code:--
+
+emp = {
+    1000: 'Ganesh',
+    1818: 'Vijay',
+    98270: 'Pankaj',
+    2000: 'Yogesh',
+    8180: 'Laxman',
+    1872: 'Uday'
+}
+emp_uppercase = {k: v.upper() for k, v in emp.items()}
+print('Employee names in uppercase:', emp_uppercase)
+emp_formatted_ids = {f'E:{k}': v for k, v in emp.items()}
+print('Employee IDs formatted:', emp_formatted_ids)
+
+Output:--
+
+Employee names in uppercase: {1000: 'GANESH', 1818: 'VIJAY', 98270: 'PANKAJ', 2000: 'YOGESH', 8180: 'LAXMAN', 1872: 'UDAY'}
+Employee IDs formatted: {'E:1000': 'Ganesh', 'E:1818': 'Vijay', 'E:98270': 'Pankaj', 'E:2000': 'Yogesh', 'E:8180': 'Laxman', 'E:1872': 'Uday'}
+=================================================================================================================================================================== 
+
