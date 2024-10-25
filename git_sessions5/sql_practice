@@ -1,0 +1,27 @@
+1.--Stock Availability by Product Category
+
+ select productname,stock as stock_availability from products group by productname,stock;
+
+2.--How many orders there are for each status.
+
+ select orderid,status,quantity as how_many_orders from orders group by orderid,status,quantity;
+
+3.-- Find products whose stock is below the average stock across all products.
+ 
+  select productid,productname,stock from products group by productid,productname,stock having stock<(select avg(stock) from products);
+ 
+4.--Customers whose average order quantity is greater than 5.
+
+   select c.name,o.orderid,avg(o.quantity) from customers c join orders o on o.customerid=c.customerid
+   group by c.name,o.orderid having avg(o.quantity)>5;
+
+5.--Find products that have an average price above amount---5000(Price)
+
+  select productid,productname,avg(price) as Average_Price from products group by productid,productname having avg(price)>5000;
+
+
+6.--Customers who have placed their most recent order within the last month. with Most Recent Order
+
+select customerid,max(orderdate)from orders group by customerid having max(orderdate)< ADD_MONTHS (SYSDATE,-1);
+
+
