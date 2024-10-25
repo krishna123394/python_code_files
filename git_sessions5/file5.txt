@@ -1,0 +1,47 @@
+2 )how do you add TWO strings a1 = ‘Avinash’ , a2 = ‘Kumar’
+output should come as ‘Avinash  Kumar’
+"""
+a1='Avinash'
+a2='Kumar'
+new_name=a1 +" "+a2
+print(new_name)
+ 
+OUTPUT:--
+Avinash Kumar
+---------------------------------------------------------------------------------------------
+
+12) Wrtie the statement to sum all the numbers from 45 to 65
+   
+
+program :
+          total_sum = sum(range(45, 66))
+          print(total_sum)
+output:--
+1155
+---------------------------------------------------------------------------------------------
+13) Data1 = [12,44 ,89,………and so on …………….]
+Leave the LAST TWO elements and after that from the RIGHT of the list consider the LAST 8 elements and find the highest element
+
+Program Code:--
+data1=[12,44,89,34,56,23,67,89,90,12,78,34,99]
+highest_num =max(data1[-10:-2])
+print(highest_num)
+Output:
+90
+----------------------------------------------------------------------------------------------------------------------
+
+14)Str1 = “45,66,77,49,5,16……and so on …….”
+Str2 = “100,12,33,35, ……….and so on …….”
+Find the sum of COMMON elements between Str1 and Str2. You can achieve this in 4 lines.
+
+Programming Code:--
+str1="45,66,77,49,5,16"
+str2="100,12,33,35,45,66"
+
+set1 = set(map(int,str1.split(',')))
+set2 = set(map(int,str2.split(',')))
+common_sum = sum(set1 & set2)
+print(common_sum)
+
+Output:--
+111
